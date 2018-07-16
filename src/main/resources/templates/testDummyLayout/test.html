@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/default">
+<head>
+	<meta charset="ISO-8859-1"/>
+	<title>Add Plant</title>
+</head>
+<body>
+   
+     <div layout:fragment="content">
+				
+			<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+				<ul class="breadcrumb">
+					<li>
+						<i class="ace-icon fa fa-home home-icon"></i>
+						<a href="#">Home</a>
+					</li>
+
+					<li class="active">Add Plant</li>
+				</ul><!-- /.breadcrumb -->
+			</div>
+			
+			<div class="page-content">
+						
+						<div class="page-header">
+							<h1>
+								Add Plant
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									Enter the Plant details
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+						
+						<div th:if="${message}">
+							<h2 th:text="${message}"></h2>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-12">
+<form id="dropzone-form" class="dropzone"
+                                         enctype="multipart/form-data">
+
+                                         <div class="dz-default dz-message file-dropzone text-center well col-sm-12">
+                                                 <span class="glyphicon glyphicon-paperclip"></span> <span>
+                                                       To attach files, drag and drop here</span><br>
+                                                <span>OR</span><br>
+                                                <span>Just Click</span>
+                                         </div>
+
+                                         <!-- this is were the previews should be shown. -->
+                                         <div class="dropzone-previews"></div>
+                                  </form>
+
+								
+								
+						
+
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+			</div>
+			
+				
+	</div><!-- /.main-content -->
+	
+	
+	<th:block layout:fragment="scripts">
+	
+		<script type="text/javascript">
+
+			jQuery(function($){
+			
+			try {
+			  Dropzone.autoDiscover = false;
+			
+			  var myDropzone = new Dropzone('#dropzone', {
+				  url:"/dropzone/upload",
+			    previewTemplate: $('#preview-template').html(),
+			    
+				thumbnailHeight: 120,
+			    thumbnailWidth: 120,
+			    maxFilesize: 0.5,
+				
+				//addRemoveLinks : true,
+				//dictRemoveFile: 'Remove',
+				
+				dictDefaultMessage :
+				'<span class="bigger-150 bolder"><i class="ace-icon fa fa-caret-right red"></i> Drop leaf image</span> to upload \
+				<span class="smaller-80 grey">(or click to Upload)</span> <br /> \
+				<i class="upload-icon ace-icon fa fa-cloud-upload blue fa-3x"></i>',
+			
+				
+			    thumbnail: function(file, dataUrl) {
+			      if (file.previewElement) {
+			        $(file.previewElement).removeClass("dz-file-preview");
+			        var images = $(file.previewElement).find("[data-dz-thumbnail]").each(function() {
+						var thumbnailElement = this;
+						thumbnailElement.alt = file.name;
+						thumbnailElement.src = dataUrl;
+					});
+			        setTimeout(function() { $(file.previewElement).addClass("dz-image-preview"); }, 1);
+			      }
+			    }
+			
+			  });
+			
+			
+			  //simulating upload progress
+			  var minSteps = 6,
+			      maxSteps = 60,
+			      timeBetweenSteps = 100,
+			      bytesPerStep = 100000;
+			
+			  myDropzone.uploadFiles = function(files) {
+			    var self = this;
+			
+			    for (var i = 0; i < files.length; i++) {
+			      var file = files[i];
+			          totalSteps = Math.round(Math.min(maxSteps, Math.max(minSteps, file.size / bytesPerStep)));
+			
+			      for (var step = 0; step < totalSteps; step++) {
+			        var duration = timeBetweenSteps * (step + 1);
+			        setTimeout(function(file, totalSteps, step) {
+			          return function() {
+			            file.upload = {
+			              progress: 100 * (step + 1) / totalSteps,
+			              total: file.size,
+			              bytesSent: (step + 1) * file.size / totalSteps
+			            };
+			
+			            self.emit('uploadprogress', file, file.upload.progress, file.upload.bytesSent);
+			            if (file.upload.progress == 100) {
+			              file.status = Dropzone.SUCCESS;
+			              self.emit("success", file, 'success', null);
+			              self.emit("complete", file);
+			              self.processQueue();
+			            }
+			          };
+			        }(file, totalSteps, step), duration);
+			      }
+			    }
+			   }
+			
+			   
+			   //remove dropzone instance when leaving this page in ajax mode
+			   $(document).one('ajaxloadstart.page', function(e) {
+					try {
+						myDropzone.destroy();
+					} catch(e) {}
+			   });
+			
+			} catch(e) {
+			  alert('Dropzone.js does not support older browsers!');
+			}
+			
+			});
+			autosize($('textarea[class*=autosize]'));
+		
+				$(document).one('ajaxloadstart.page', function(e) {
+					autosize.destroy('textarea[class*=autosize]')				
+					
+				});
+			
+			
+		</script>
+	</th:block>
+    
+</body>
+</html>

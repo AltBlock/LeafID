@@ -53,18 +53,24 @@
 
 											<div class="space-6"></div>
 
-											<form>
+											<form th:action="@{/login}" method="post">
 												<fieldset>
+												<div th:if="${param.error}">
+                    Invalid email and password.
+                </div>
+                <div th:if="${param.logout}">
+                    You have been logged out.
+                </div>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Username" />
+															<input type="email" name="email" id="inputEmail" class="form-control" placeholder="email" />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Password" />
+															<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password"/>
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
@@ -74,7 +80,7 @@
 													<div class="clearfix center">
 														
 
-														<button type="button" class="width-35 btn btn-sm btn-primary">
+														<button type="submit" class="width-35 btn btn-sm btn-primary">
 															<i class="ace-icon fa fa-key"></i>
 															<span class="bigger-110">Login</span>
 														</button>
