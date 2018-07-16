@@ -37,7 +37,7 @@
 
 				<ul class="nav nav-list">
 					<li class="">
-						<a href="index.html">
+						<a th:href="@{/form}">
 							<i class="menu-icon fa fa-tachometer"></i>
 							<span class="menu-text"> Dashboard </span>
 						</a>
@@ -58,7 +58,7 @@
 
 					
 					<li class="">
-						<a th:href="@{/form}">
+						<a th:href="@{/viewplant}">
 							<i class="menu-icon fa fa-list-alt"></i>
 							<span class="menu-text"> View Plant List 
 								<span class="badge badge-primary">5</span>
@@ -69,9 +69,18 @@
 					</li>
 
 					<li class="">
-						<a href="widgets.html">
+						<a th:href="@{/register}">
 							<i class="menu-icon fa fa-users"></i>
 							<span class="menu-text"> Add User </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+					
+					<li class="">
+						<a th:href="@{/userlist}">
+							<i class="menu-icon fa fa-users"></i>
+							<span class="menu-text"> Users List </span>
 						</a>
 
 						<b class="arrow"></b>

@@ -34,7 +34,7 @@ public class FileUploadController {
 	
 	public static final int ID_LENGTH = 10;
 
-    private final StorageService storageService;
+    private static StorageService storageService;
     @Autowired
 	private PlantRepository repo;
 
@@ -85,7 +85,7 @@ public class FileUploadController {
     	/// saving plant to database
     	repo.save(plant);     
         
-        return "redirect:/";
+        return "redirect:/viewplant";
     }
 
     @ExceptionHandler(StorageFileNotFoundException.class)
@@ -98,7 +98,7 @@ public class FileUploadController {
     }
     
     /*This method saves image in file and return url of image*/
-    private String saveImageinFile(MultipartFile file)
+    public String saveImageinFile(MultipartFile file)
     {
     	return storageService.store(file);
     }

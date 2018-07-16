@@ -32,19 +32,20 @@
 					
 					<div class="row">
 						<div class="col-xs-12">
-							<!-- PAGE CONTENT BEGINS -->														
+							<!-- PAGE CONTENT BEGINS -->
+																		
 									<div id="user-profile-1" class="user-profile row">
 										<div class="col-xs-12 col-sm-4 center">
 											<div>
 												<span class="profile-picture">
-													<img id="avatar" class="editable img-responsive" alt="Plant picture" src="images/gallery/image-3.jpg" />
+													<img th:src="@{'/file/'+${plantDetails.imageUrl}}"  alt="Plant picture" style="width:380px;height:460px"/>
 												</span>
 
 												<div class="space-4"></div>
 
 												<div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
 													<div class="inline position-relative">								
-															<span class="white">Test</span>														
+															<span class="white" th:text="${plantDetails.commonName}">Title</span>														
 													</div>
 												</div>
 											</div>
@@ -56,73 +57,79 @@
 												<div class="profile-info-row">
 													<div class="profile-info-name"> Kingdom </div>
 													<div class="profile-info-value">
-														<span class="editable" id="username">test</span>
+														<span class="editable" id="username" th:text="${plantDetails.kingdom}">test</span>
 													</div>
 												</div>
 												<div class="profile-info-row">
 													<div class="profile-info-name"> Sub-Kingdom </div>
 													<div class="profile-info-value">
-														<span class="editable" id="username">test</span>
+														<span class="editable" id="username" th:text="${plantDetails.subKingdom}">test</span>
+													</div>
+												</div>
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Super-Kingdom </div>
+													<div class="profile-info-value">
+														<span class="editable" id="username" th:text="${plantDetails.superDivision}">test</span>
 													</div>
 												</div>
 												<div class="profile-info-row">
 													<div class="profile-info-name"> Division </div>
 													<div class="profile-info-value">
-														<span class="editable" id="username">test</span>
+														<span class="editable" id="username" th:text="${plantDetails.division}">test</span>
 													</div>
 												</div>
 												<div class="profile-info-row">
 													<div class="profile-info-name"> Phylum </div>
 													<div class="profile-info-value">
-														<span class="editable" id="username">test</span>
+														<span class="editable" id="username" th:text="${plantDetails.phylum}">test</span>
 													</div>
 												</div>
 												<div class="profile-info-row">
 													<div class="profile-info-name"> Class Name </div>
 													<div class="profile-info-value">
-														<span class="editable" id="username">test</span>
+														<span class="editable" id="username" th:text="${plantDetails.className}">test</span>
 													</div>
 												</div>
 												<div class="profile-info-row">
 													<div class="profile-info-name"> Sub-Class </div>
 													<div class="profile-info-value">
-														<span class="editable" id="username">test</span>
+														<span class="editable" id="username" th:text="${plantDetails.subClass}">test</span>
 													</div>
 												</div>
 												<div class="profile-info-row">
 													<div class="profile-info-name"> Order </div>
 													<div class="profile-info-value">
-														<span class="editable" id="username">test</span>
+														<span class="editable" id="username" th:text="${plantDetails.order}">test</span>
+													</div>
+												</div>
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Family </div>
+													<div class="profile-info-value">
+														<span class="editable" id="username" th:text="${plantDetails.family}">test</span>
 													</div>
 												</div>
 												<div class="profile-info-row">
 													<div class="profile-info-name"> Genus </div>
 													<div class="profile-info-value">
-														<span class="editable" id="username">test</span>
-													</div>
-												</div>
-												<div class="profile-info-row">
-													<div class="profile-info-name"> Genus </div>
-													<div class="profile-info-value">
-														<span class="editable" id="username">test</span>
+														<span class="editable" id="username" th:text="${plantDetails.genus}">test</span>
 													</div>
 												</div>
 												<div class="profile-info-row">
 													<div class="profile-info-name"> Species </div>
 													<div class="profile-info-value">
-														<span class="editable" id="username">test</span>
+														<span class="editable" id="username" th:text="${plantDetails.species}">test</span>
 													</div>
 												</div>
 												<div class="profile-info-row">
 													<div class="profile-info-name"> Common Name </div>
 													<div class="profile-info-value">
-														<span class="editable" id="username">test</span>
+														<span class="editable" id="username" th:text="${plantDetails.commonName}">test</span>
 													</div>
 												</div>
 												<div class="profile-info-row">
 													<div class="profile-info-name"> Description </div>
 													<div class="profile-info-value">
-														<span class="editable" id="username">test</span>
+														<span class="editable" id="username" th:text="${plantDetails.description}">test</span>
 													</div>
 												</div>
 											</div>

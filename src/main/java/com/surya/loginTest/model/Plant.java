@@ -17,6 +17,7 @@ public class Plant {
 	
 	@Id
 	private String id;
+	
 	private String imageUrl;
 	private String functionPoint;	
 	private String kingdom;
@@ -131,5 +132,4 @@ public class Plant {
 		this.description = description;
 	}
 	
-
 }
