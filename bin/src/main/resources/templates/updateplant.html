@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/default">
+<head>
+	<meta charset="ISO-8859-1"/>
+	<title>Add Plant</title>
+</head>
+<body>
+   
+    <div layout:fragment="content">
+				
+			<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+				<ul class="breadcrumb">
+					<li>
+						<i class="ace-icon fa fa-home home-icon"></i>
+						<a href="#">Home</a>
+					</li>
+
+					<li class="active">Add Plant</li>
+				</ul><!-- /.breadcrumb -->
+			</div>
+			
+			<div class="page-content">
+						
+						<div class="page-header">
+							<h1>
+								Add Plant
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									Enter the Plant details
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+						
+						<div th:if="${message}">
+							<h2 th:text="${message}"></h2>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-12">
+							
+							<form th:object="${plant}" class="form-horizontal" method="POST" enctype="multipart/form-data" action="/update" modelAttribute="plant">
+								<input
+									  type="hidden"
+									  th:name="${_csrf.parameterName}"
+									  th:value="${_csrf.token}" />
+								<div class="col-xs-7">
+									<!-- PAGE CONTENT BEGINS -->
+									
+										<input type="hidden" name="id" th:value="${plant.id}"/>
+										<input type="hidden" name="imageUrl" th:value="${plant.imageUrl}"/>
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Kingdom </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-1" th:value="${plant.kingdom}" name="kingdom" placeholder="Kingdom" class="col-xs-12" />
+											</div>
+										</div>
+
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-2"> Sub-Kingdom </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-2" th:value="${plant.subKingdom}" name="subKingdom" placeholder="Sub-Kingdom" class="col-xs-12" />											
+											</div>
+										</div>
+										
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-3"> Super Division </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-3" th:value="${plant.superDivision}" name="superDivision" placeholder="Super-Division" class="col-xs-12" />											
+											</div>
+										</div>
+
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-3-1"> Division </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-3-1" th:value="${plant.division}" name="division" placeholder="Division" class="col-xs-12" />											
+											</div>
+										</div>
+
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-4"> Phylum </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-4" th:value="${plant.phylum}" name="phylum" placeholder="Phylum" class="col-xs-12" />											
+											</div>
+										</div>
+
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-5"> Class Name </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-5" th:value="${plant.className}" name="className" placeholder="Class Name" class="col-xs-12" />											
+											</div>
+										</div>
+
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-6"> 
+												Sub-Class </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-6" th:value="${plant.subClass}" name="subClass" placeholder="Sub-Class" class="col-xs-12" />											
+											</div>
+										</div>
+
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-7"> Order </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-7" th:value="${plant.order}" name="order" placeholder="Order" class="col-xs-12" />											
+											</div>
+										</div>
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-7-1"> Family </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-7-1" th:value="${plant.family}" name="family" placeholder="Family" class="col-xs-12" />											
+											</div>
+										</div>
+
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-8"> Genus </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-8" th:value="${plant.genus}" name="genus" placeholder="Genus" class="col-xs-12" />											
+											</div>
+										</div>
+
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-9"> Species </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-9" th:value="${plant.species}" name="species" placeholder="Species" class="col-xs-12" />											
+											</div>
+										</div>
+
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-10"> Common Name </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-10" th:value="${plant.commonName}" name="commonName"  class="col-xs-12" />											
+											</div>
+										</div>
+
+										
+
+									
+										<div class="clearfix form-actions">
+											<div class="col-md-offset-4 col-md-8">
+												<button class="btn btn-primary" type="submit" value="Upload" >
+													<i class="ace-icon fa fa-check bigger-110"></i>
+													Submit
+												</button>
+
+												&nbsp; &nbsp; &nbsp;
+												<button class="btn" type="reset">
+													<i class="ace-icon fa fa-undo bigger-110"></i>
+													Reset
+												</button>
+											</div>
+										</div>
+									</div>	
+
+								
+								<div class="col-xs-5">							
+
+									<div>
+										<div  class="dropzone well" id="dropzone">
+											<div class="fallback">
+												File to upload:<input type="file" name="file" accept="image/x-png,image/gif,image/jpeg"/>
+											</div>
+										</div>
+									</div>
+									
+									<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-2 control-label no-padding-right" for="form-field-11"> Description </label>
+											<div class="col-sm-10">
+
+											<textarea id="form-field-11" name="description" th:field="${plant.description}" class="autosize-transition form-control"></textarea>
+										</div>
+										</div>
+
+									<div id="preview-template" class="hide">
+										<div class="dz-preview dz-file-preview">
+											<div class="dz-image">
+												<img data-dz-thumbnail="" />
+											</div>
+
+											<div class="dz-details">
+												<div class="dz-size">
+													<span data-dz-size=""></span>
+												</div>
+
+												<div class="dz-filename">
+													<span data-dz-name=""></span>
+												</div>
+											</div>
+
+											<div class="dz-progress">
+												<span class="dz-upload" data-dz-uploadprogress=""></span>
+											</div>
+
+											<div class="dz-error-message">
+												<span data-dz-errormessage=""></span>
+											</div>
+
+											<div class="dz-success-mark">
+												<span class="fa-stack fa-lg bigger-150">
+													<i class="fa fa-circle fa-stack-2x white"></i>
+
+													<i class="fa fa-check fa-stack-1x fa-inverse green"></i>
+												</span>
+											</div>
+
+											<div class="dz-error-mark">
+												<span class="fa-stack fa-lg bigger-150">
+													<i class="fa fa-circle fa-stack-2x white"></i>
+
+													<i class="fa fa-remove fa-stack-1x fa-inverse red"></i>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						
+
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+			</div>
+			
+				
+	</div><!-- /.main-content -->
+    
+
+</body>
+</html>

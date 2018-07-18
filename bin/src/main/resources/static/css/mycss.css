@@ -1,0 +1,102 @@
+.form-group {
+    margin-bottom: 6px;
+}
+
+.login-container {
+    width: 450px;
+    margin: 0 auto;
+}
+
+.user-info {
+    max-width: 300px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    vertical-align: top;
+    line-height: 15px;
+    position: relative;
+    top: 6px;
+}
+
+.navbar {
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    border-width: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    min-height: 45px;
+    background: #108916;
+}
+
+.ace-nav>li.light-blue>a {
+    background-color: #1fa025f5;
+}
+.ace-nav>li.light-blue>a:focus, .ace-nav>li.light-blue>a:hover, .ace-nav>li.open.light-blue>a {
+    background-color: #0d7212;
+}
+
+.profile-user-info {
+ display:table;
+ width:98%;
+ width:calc(100% - 24px);
+ margin:0 auto
+}
+.profile-info-row {
+ display:table-row
+}
+.profile-info-name,.profile-info-value {
+ display:table-cell;
+ border-top:1px dotted #D5E4F1
+}
+.profile-info-name {
+ text-align:right;
+ padding:6px 10px 6px 4px;
+ font-weight:500;
+ font-size: 14px;
+ color:#667E99;
+ background-color:transparent;
+ width:140px;
+ vertical-align:middle
+}
+.profile-info-value {
+ padding:6px 4px 6px 6px
+}
+.profile-info-value>span+span:before {
+ display:inline;
+ content:",";
+ margin-left:1px;
+ margin-right:3px;
+ color:#666;
+ border-bottom:1px solid #FFF
+}
+.profile-info-value>span+span.editable-container:before {
+ display:none
+}
+.profile-info-row:first-child .profile-info-name,.profile-info-row:first-child .profile-info-value {
+ border-top:none
+}
+.profile-user-info-striped {
+ border:1px solid #DCEBF7
+}
+.profile-user-info-striped .profile-info-name {
+ color:#336199;
+ background-color:#EDF3F4;
+ border-top:1px solid #F7FBFF
+}
+.profile-user-info-striped .profile-info-value {
+ border-top:1px dotted #DCEBF7;
+ padding-left:12px
+}
+
+.form-actions {
+    display: block;
+    background-color: #F5F5F5;
+    border-top: 1px solid #E5E5E5;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 10px 10px 10px;
+}

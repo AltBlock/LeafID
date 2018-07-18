@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/default">
+<head>
+	<meta charset="ISO-8859-1"/>
+	<title>Add Plant</title>
+</head>
+<body>
+   
+     <div layout:fragment="content">
+				
+			<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+				<ul class="breadcrumb">
+					<li>
+						<i class="ace-icon fa fa-home home-icon"></i>
+						<a href="#">Home</a>
+					</li>
+
+					<li class="active">Add Plant</li>
+				</ul><!-- /.breadcrumb -->
+			</div>
+			
+			<div class="page-content">
+						
+						<div class="page-header">
+							<h1>
+								Add Plant
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									Enter the Plant details
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+						
+						<div th:if="${message}">
+							<h2 th:text="${message}"></h2>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-12">
+							<form class="form-horizontal"  id="dropzone-form" method="POST" enctype="multipart/form-data" action="/file/upload" modelAttribute="plant">
+								
+								<div class="col-xs-7">
+									<!-- PAGE CONTENT BEGINS -->
+									
+										
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-1"> Kingdom </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-1" name="kingdom" placeholder="Kingdom" class="col-xs-12" />
+											</div>
+										</div>
+
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-2"> Sub-Kingdom </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-2" name="subKingdom" placeholder="Sub-Kingdom" class="col-xs-12" />											
+											</div>
+										</div>
+										
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-3"> Super Division </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-3" name="superDivision" placeholder="Super-Division" class="col-xs-12" />											
+											</div>
+										</div>
+
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-3-1"> Division </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-3-1" name="division" placeholder="Division" class="col-xs-12" />											
+											</div>
+										</div>
+
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-4"> Phylum </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-4" name="phylum" placeholder="Phylum" class="col-xs-12" />											
+											</div>
+										</div>
+
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-5"> Class Name </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-5" name="className" placeholder="Class Name" class="col-xs-12" />											
+											</div>
+										</div>
+
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-6"> 
+												Sub-Class </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-6" name="subClass" placeholder="Sub-Class" class="col-xs-12" />											
+											</div>
+										</div>
+
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-7"> Order </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-7" name="order" placeholder="Order" class="col-xs-12" />											
+											</div>
+										</div>
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-7-1"> Family </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-7-1" name="family" placeholder="Family" class="col-xs-12" />											
+											</div>
+										</div>
+
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-8"> Genus </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-8" name="genus" placeholder="Genus" class="col-xs-12" />											
+											</div>
+										</div>
+
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-9"> Species </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-9" name="species" placeholder="Species" class="col-xs-12" />											
+											</div>
+										</div>
+
+										<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label no-padding-right" for="form-field-10"> Common Name </label>
+
+											<div class="col-sm-8">
+												<input type="text" id="form-field-10" name="commonName" placeholder="Common Name" class="col-xs-12" />											
+											</div>
+										</div>
+
+										
+
+									
+										<div class="clearfix form-actions">
+											<div class="col-md-offset-4 col-md-8">
+												<button class="btn btn-primary" type="submit" value="Upload" >
+													<i class="ace-icon fa fa-check bigger-110"></i>
+													Submit
+												</button>
+
+												&nbsp; &nbsp; &nbsp;
+												<button class="btn" type="reset">
+													<i class="ace-icon fa fa-undo bigger-110"></i>
+													Reset
+												</button>
+											</div>
+										</div>
+									</div>	
+
+								
+								<div class="col-xs-5">							
+
+									<div>
+										<div  action="/dropzone/upload" class="dropzone well" id="dropzone">
+											<div class="fallback">
+												File to upload:<input type="file" name="file" accept="image/x-png,image/gif,image/jpeg" />
+											</div>
+										</div>
+									</div>
+									
+									<div class="space-2"></div>
+
+										<div class="form-group">
+											<label class="col-sm-2 control-label no-padding-right" for="form-field-11"> Description </label>
+											<div class="col-sm-10">
+
+											<textarea id="form-field-11" name="description" placeholder="Write some description.." class="autosize-transition form-control"></textarea>
+										</div>
+										</div>
+
+									<div id="preview-template" class="hide">
+										<div class="dz-preview dz-file-preview">
+											<div class="dz-image">
+											
+												<img data-dz-thumbnail="" />
+											</div>
+
+											<div class="dz-details">
+												<div class="dz-size">
+													<span data-dz-size=""></span>
+												</div>
+
+												<div class="dz-filename">
+													<span data-dz-name=""></span>
+												</div>
+											</div>
+
+											<div class="dz-progress">
+												<span class="dz-upload" data-dz-uploadprogress=""></span>
+											</div>
+
+											<div class="dz-error-message">
+												<span data-dz-errormessage=""></span>
+											</div>
+
+											<div class="dz-success-mark">
+												<span class="fa-stack fa-lg bigger-150">
+													<i class="fa fa-circle fa-stack-2x white"></i>
+
+													<i class="fa fa-check fa-stack-1x fa-inverse green"></i>
+												</span>
+											</div>
+
+											<div class="dz-error-mark">
+												<span class="fa-stack fa-lg bigger-150">
+													<i class="fa fa-circle fa-stack-2x white"></i>
+
+													<i class="fa fa-remove fa-stack-1x fa-inverse red"></i>
+												</span>
+											</div>
+										</div>
+									</div><!-- PAGE CONTENT ENDS -->
+								</div><!-- /.col -->
+							</form>
+						
+
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+			</div>
+			
+				
+	</div><!-- /.main-content -->
+	
+	
+	<th:block layout:fragment="scripts">
+	<script src="../static/js/autosize.min.js" th:src="@{/js/autosize.min.js/}"></script>
+		<script type="text/javascript">
+
+			jQuery(function($){
+			
+			try {
+			  Dropzone.autoDiscover = false;
+			
+			  var myDropzone = new Dropzone('#dropzone', {
+				  url:"/dropzone/upload",
+			    previewTemplate: $('#preview-template').html(),
+			    
+				thumbnailHeight: 120,
+			    thumbnailWidth: 120,
+			    maxFilesize: 0.5,
+				
+				//addRemoveLinks : true,
+				//dictRemoveFile: 'Remove',
+				
+				dictDefaultMessage :
+				'<span class="bigger-150 bolder"><i class="ace-icon fa fa-caret-right red"></i> Drop leaf image</span> to upload \
+				<span class="smaller-80 grey">(or click to Upload)</span> <br /> \
+				<i class="upload-icon ace-icon fa fa-cloud-upload blue fa-3x"></i>',
+			
+				
+			    thumbnail: function(file, dataUrl) {
+			      if (file.previewElement) {
+			        $(file.previewElement).removeClass("dz-file-preview");
+			        var images = $(file.previewElement).find("[data-dz-thumbnail]").each(function() {
+						var thumbnailElement = this;
+						thumbnailElement.alt = file.name;
+						thumbnailElement.src = dataUrl;
+					});
+			        setTimeout(function() { $(file.previewElement).addClass("dz-image-preview"); }, 1);
+			      }
+			    }
+			
+			  });
+			
+			
+			  //simulating upload progress
+			  var minSteps = 6,
+			      maxSteps = 60,
+			      timeBetweenSteps = 100,
+			      bytesPerStep = 100000;
+			
+			  myDropzone.uploadFiles = function(files) {
+			    var self = this;
+			
+			    for (var i = 0; i < files.length; i++) {
+			      var file = files[i];
+			          totalSteps = Math.round(Math.min(maxSteps, Math.max(minSteps, file.size / bytesPerStep)));
+			
+			      for (var step = 0; step < totalSteps; step++) {
+			        var duration = timeBetweenSteps * (step + 1);
+			        setTimeout(function(file, totalSteps, step) {
+			          return function() {
+			            file.upload = {
+			              progress: 100 * (step + 1) / totalSteps,
+			              total: file.size,
+			              bytesSent: (step + 1) * file.size / totalSteps
+			            };
+			
+			            self.emit('uploadprogress', file, file.upload.progress, file.upload.bytesSent);
+			            if (file.upload.progress == 100) {
+			              file.status = Dropzone.SUCCESS;
+			              self.emit("success", file, 'success', null);
+			              self.emit("complete", file);
+			              self.processQueue();
+			            }
+			          };
+			        }(file, totalSteps, step), duration);
+			      }
+			    }
+			   }
+			
+			   
+			   //remove dropzone instance when leaving this page in ajax mode
+			   $(document).one('ajaxloadstart.page', function(e) {
+					try {
+						myDropzone.destroy();
+					} catch(e) {}
+			   });
+			
+			} catch(e) {
+			  alert('Dropzone.js does not support older browsers!');
+			}
+			
+			});
+			autosize($('textarea[class*=autosize]'));
+		
+				$(document).one('ajaxloadstart.page', function(e) {
+					autosize.destroy('textarea[class*=autosize]')				
+					
+				});
+			
+			
+		</script>
+	</th:block>
+    
+</body>
+</html>
