@@ -40,6 +40,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/", "/public/**").permitAll()
                 .antMatchers("/register").permitAll()
+                .antMatchers("/webuser").permitAll()
                 .antMatchers("/users/**").hasAuthority("ADMIN")
                 .anyRequest().fullyAuthenticated()
                 .and()
@@ -67,7 +68,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
-                .antMatchers("/resources/**", "/static/**", "/font-awesome/**","/fonts/**","/css/**", "/js/**", "/images/**");
+                .antMatchers("/resources/**", "/static/**", "/font-awesome/**","/fonts/**","/css/**", "/js/**", "/vendor/**", "/images/**");
     }
 
 }

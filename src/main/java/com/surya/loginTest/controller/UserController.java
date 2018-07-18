@@ -8,6 +8,7 @@ import javax.validation.Valid;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,6 +26,7 @@ import com.surya.loginTest.model.Role;
 import com.surya.loginTest.repository.RoleRepository;
 import com.surya.loginTest.repository.UserRepository;
 import com.surya.loginTest.service.UserDetailService;
+import com.surya.loginTest.service.UserDetailServiceImpl;
 
 
 
@@ -39,7 +41,7 @@ public class UserController {
     private RoleRepository roleRepository;
 	
 	@Autowired
-	private UserDetailService userService;
+	private UserDetailServiceImpl userService;
 			
 		
 		@RequestMapping(value="/password", method=RequestMethod.GET)
@@ -53,11 +55,17 @@ public class UserController {
 	}
 
 	@RequestMapping(value="/register", method=RequestMethod.POST)
-	public ModelAndView saveUserDetail(AppUser user, BindingResult result) {
+	public ModelAndView saveUserDetail(AppUser user, BindingResult bindingResult) {
 		ModelAndView modelView = new ModelAndView();
-		if(result.hasErrors()) {
-			System.out.println("error occured");
-			return modelView;
+		AppUser userExists = userService.findUserByEmail(user.getEmail());
+        if (userExists != null) {
+            bindingResult
+                    .rejectValue("email", "error.user",
+                            "There is already a user registered with the username provided");
+        }
+		if(bindingResult.hasErrors()) {
+			modelView.addObject("message", "Could not Register the new User");
+			modelView.setViewName("register");
 		}
 		else {			
 		user.setId(generateUniqueId());
@@ -67,7 +75,7 @@ public class UserController {
 		
 		return modelView;
 		}
-	
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/userlist", method=RequestMethod.GET)
 	public String getUserList(Model model) {
 		List<AppUser> userList = userRepository.findAll();
@@ -76,6 +84,7 @@ public class UserController {
 		return "userlist";
 	}
 	
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping("/updateuser/{id}") //@RequestMapping(value = "/plant/edit")
 	public String updateUser(Model model,@PathVariable String id){
 		System.out.println("in console Id: " + id);
@@ -85,6 +94,7 @@ public class UserController {
 		return "updateuser";
 	}
 	
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@PostMapping("/updateuser")
 	public String saveUpdatedUser(@Valid @ModelAttribute("user") AppUser user, @RequestParam("password") String password, @RequestParam("chpassword") String chpassword) {
 		if(!((password == null)||(password.isEmpty()))) {
@@ -101,6 +111,7 @@ public class UserController {
 		return "redirect:/userlist";
 		}
 	
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/user/delete", method=RequestMethod.DELETE)
 	public String deleteUser(@RequestParam("id") String id) {
 		userRepository.deleteById(id);

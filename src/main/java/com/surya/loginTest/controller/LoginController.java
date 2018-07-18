@@ -7,6 +7,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -58,6 +59,7 @@ public class LoginController {
 		return "plantdetails";
 	}
 	
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping("/form") 
 	public String userAddPage(Model model){
 		model.addAttribute("addStatus", true);
@@ -65,6 +67,7 @@ public class LoginController {
 		return "plantform";
 	}
 	
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/viewplant", method=RequestMethod.GET)
 		public String getPlantList(Model model) {
 		List<Plant> plantList = repository.findAll();
@@ -73,6 +76,7 @@ public class LoginController {
 		return "viewallplant";
 	}
 	
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/viewplant/{id}", method=RequestMethod.GET)	
 		public String getPlant(@PathVariable String id, Model model) {
 		Optional<Plant> selectedPlant =repository.findById(id);
@@ -80,6 +84,7 @@ public class LoginController {
 		return "plantdetails";
 	}
 	
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping("/update/{id}") //@RequestMapping(value = "/plant/edit")
 	public String editPlant(Model model,@PathVariable String id){
 		System.out.println("in console Id: " + id);
@@ -89,13 +94,14 @@ public class LoginController {
 		return "updateplant";
 	}
 
-	
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/plant/delete", method=RequestMethod.DELETE)
 	public String deletePlant(@RequestParam("id") String id){
 		repository.deleteById(id);
 		return "redirect:/viewplant";
 	}
 	
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@SuppressWarnings("null")
 	@PostMapping("/update")
 	public String savePlant(@Valid @ModelAttribute("plant")Plant plant,
