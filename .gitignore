@@ -9,6 +9,10 @@
 .settings
 .springBeans
 .sts4-cache
+.settings
+.mvn
+.idea
+.apt_generated
 
 ### IntelliJ IDEA ###
 .idea
@@ -26,4 +30,10 @@
 /bin/upload-dir/
 /target/
 /out/
-/upload-dir/
+upload-dir
+
+out
+src/
+.env
+.idea/
+*.iml

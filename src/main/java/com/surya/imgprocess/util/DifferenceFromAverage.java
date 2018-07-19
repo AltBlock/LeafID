@@ -14,12 +14,15 @@ public class DifferenceFromAverage {
 	
 	public DifferenceFromAverage(Mat img)
 	{
+		System.out.println("Recived image of dim "+img.rows()+"x"+img.cols());
 		distanceDiff =new LinkedList<>();
 		FeatureVectorCalculator fvc = new FeatureVectorCalculator(img);
+		
 		double average =fvc.getAverageFv();
-		for(double distance:fvc.getFeatureVector())
+		
+		for(Double distance:fvc.getFeatureVector())
 		{
-			 distanceDiff.add(distance-average);
+			 this.distanceDiff.add(new Double(distance-average));
 		}
 		
 		
@@ -27,6 +30,7 @@ public class DifferenceFromAverage {
 	}
 	
 	public List<Double> getDistanceDifferenceFromMean(){
+		
 		return this.distanceDiff;
 	}
 	

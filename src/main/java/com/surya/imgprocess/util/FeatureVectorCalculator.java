@@ -43,9 +43,23 @@ public class FeatureVectorCalculator {
 	
 	public void computeAverageFeatureVector()
 	{
-		double sum=0;
-		for(double vector:this.featureVectors) sum+=vector;
+		double sum=0.0;
+		
+		
+		System.out.println("Adding vector "+this.featureVectors);
+		double previous=this.featureVectors.get(0);
+		for(Double vector:this.featureVectors)
+		{
+			//System.out.println("Adding vector "+vector);
+			if(vector == Double.NaN) vector =previous;
+			sum=sum+vector;
+			previous=vector;
+			//System.out.println("New sum value "+sum);
+		}
 		this.averageFv=sum/this.featureVectors.size();
+		System.out.println("Average FV "+this.averageFv);
+		
+		
 		
 	}
 	
@@ -54,6 +68,18 @@ public class FeatureVectorCalculator {
 		for(Point edgePoint:this.contourPoint)
 		{
 			featureVectors.add(getEuclideanDistance(edgePoint));
+		}
+		
+		//final NaN check
+		double previous =0f;
+		
+		for(int i=0;i<this.contourPoint.size();i++)
+		{
+			if(Double.isNaN(this.featureVectors.get(i)))
+			{
+				this.featureVectors.set(i, new Double(previous));
+			}
+			previous=this.featureVectors.get(i);
 		}
 	}
 	

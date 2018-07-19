@@ -39,11 +39,6 @@ public class ContourAtRadialDistance {
 		
 	}
 	
-	
-	
-	
-	
-	
 	public  List<Point> extractContours()
 	{
 		

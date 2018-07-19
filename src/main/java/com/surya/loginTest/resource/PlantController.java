@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.surya.loginTest.model.Plant;
 import com.surya.loginTest.repository.PlantRepository;
@@ -31,7 +32,7 @@ public class PlantController {
 	
 
 	@GetMapping("/findAllPlant")
-	public List<Plant> getplant() {
+	public List<Plant> getAllPlants() {
 		return repository.findAll();
 	}
 

@@ -24,6 +24,7 @@
 			<link rel="stylesheet" href="../static/css/vendor/animate.min.css" th:href="@{/css/vendor/animate.min.css}" />
 			<link rel="stylesheet" href="../static/css/vendor/owl.carousel.css" th:href="@{/css/vendor/owl.carousel.css}" />
 			<link rel="stylesheet" href="../static/css/vendor/main.css" th:href="@{/css/vendor/main.css}" />
+			
 
 		</head>
 		<body>
@@ -36,10 +37,12 @@
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
-				          <li class="menu-active"><a href="#home">Home</a></li>				         
+				          <li class="menu-active"><a href="/">Home</a></li>				         
 				          <li><a href="#about">About</a></li>
-				           <li><a href="#">Leaf DataBase</a></li>
+				           <li><a href="/plant">Leaf DataBase</a></li>
 				          <li><a href="#aboutus">Contact Us</a></li>
+				          <li><a href="/login">Login</a></li>
+				          
 				          
 				        </ul>
 				      </nav><!-- #nav-menu-container -->		    		
@@ -63,7 +66,14 @@
 							    <div class="picture-container">
 							        <div class="picture">
 							            <i class="fa fa-leaf" id="wizardPicturePreview" ></i>
-							            <input type="file" id="wizard-picture" class="">
+							            <form action="/" method="post" id="plant-form" enctype="multipart/form-data">
+							            <input
+									  		type="hidden"
+									  		th:name="${_csrf.parameterName}"
+									  		th:value="${_csrf.token}" />
+							            	<input type="file" id="plant-upload" name="file" accept="image/x-png,image/gif,image/jpeg" >
+							            </form>
+							            
 							        </div>
 							         <h6 class="pt-20 pb-10">Upload Leaf Image</h6>
 							
@@ -205,6 +215,11 @@ Our system will work on the image provided by the user. It will extract the cont
 			}
 
 </script>
+<script>
+				document.getElementById("plant-upload").onchange = function() {
+			    document.getElementById("plant-form").submit();
+				}
+			</script>
 
 		</body>
 	</html>

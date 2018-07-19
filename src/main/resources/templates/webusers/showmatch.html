@@ -52,25 +52,25 @@
 												</thead>
 
 									<tbody>
-										<tr th:each = "plantList :${plantList}">  		
-											<td><a class="blue" th:href="@{'/viewplant/'+${plantList.id}}">
-											<img th:src="@{'/file/'+${plantList.imageUrl}}" alt="image" style="width:72px;height:72px"/>
+										<tr th:each = "similarity :${similarity}">  		
+											<td><a class="blue" th:href="@{'/viewplant/'+${similarity.plant.id}}">
+											<img th:src="@{'/file/'+${similarity.plant.imageUrl}}" alt="image" style="width:72px;height:72px"/>
 											</a>
 											</td>	
-											<td th:text ="${plantList?.matchingPercentage}">test</td>																																							
-											<td th:text ="${plantList?.subKingdom}">test</td>
-											<td th:text ="${plantList?.division}">test</td>														
-											<td th:text ="${plantList?.phylum}">test</td>
-											<td th:text ="${plantList?.className}">test</td>													
-											<td th:text ="${plantList?.family}">test</td>
-											<td th:text ="${plantList?.genus}">test</td>
-											<td th:text ="${plantList?.species}">test</td>
-											<td th:text ="${plantList?.commonName}">test</td>
+											<td th:text ="${similarity.similar}">test</td>																																							
+											<td th:text ="${similarity.plant.subKingdom}">test</td>
+											<td th:text ="${similarity.plant.division}">test</td>														
+											<td th:text ="${similarity.plant.phylum}">test</td>
+											<td th:text ="${similarity.plant.className}">test</td>													
+											<td th:text ="${similarity.plant.family}">test</td>
+											<td th:text ="${similarity.plant.genus}">test</td>
+											<td th:text ="${similarity.plant.species}">test</td>
+											<td th:text ="${similarity.plant.commonName}">test</td>
 											
 											<td>		
 											<!--Delete button-->
 													 <div class="hidden-sm hidden-xs action-buttons">                          												
-													<a class="btn btn-success" th:href="@{'/viewplant/'+${plantList.id}}">
+													<a class="btn btn-success" th:href="@{'/viewplant/'+${similarity.plant.id}}">
 														<i class="glyphicon glyphicon-grain"></i>
 													</a>
 													</div>

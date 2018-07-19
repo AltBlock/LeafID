@@ -138,7 +138,10 @@ public class Plant {
 		this.description = description;
 	}
 	public List<Double> getDistanceDifferenceFromMean() {
-		return new LinkedList (Arrays.asList(this.distanceDifferenceFromMean));
+		List<Double> returnList= new LinkedList<Double>();
+		for(int i=0;i<this.distanceDifferenceFromMean.length;i++)
+			returnList.add(new Double(this.distanceDifferenceFromMean[i]));
+		return returnList;
 	}
 	public void setDistanceDifferenceFromMean(List<Double> distanceDifferenceFromMean) {
 		this.distanceDifferenceFromMean=new double[distanceDifferenceFromMean.size()];

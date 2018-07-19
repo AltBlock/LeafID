@@ -1,0 +1,1 @@
+web: java -jar out/artifacts/LoginDemo_jar/LoginDemo.jar
