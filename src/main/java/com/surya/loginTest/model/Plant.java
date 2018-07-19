@@ -40,8 +40,6 @@ public class Plant {
 	private String species;
 	private String commonName;
 	private String description;
-	
-	
 	private double[] distanceDifferenceFromMean;
 	
 	public String getId() {
