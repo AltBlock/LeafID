@@ -122,9 +122,6 @@ public class UserController {
         return RandomStringUtils.randomAlphanumeric(ID_LENGTH);
     }
 	
-	@RequestMapping(value="/test", method=RequestMethod.GET)
-	public String getTest() {
-		return "testDummyLayout/test";
-	}
+
 
 }

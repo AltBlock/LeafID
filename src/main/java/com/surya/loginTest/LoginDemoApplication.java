@@ -16,6 +16,8 @@ import com.surya.loginTest.repository.StorageService;
 public class LoginDemoApplication {
 
 	public static void main(String[] args) {
+		//Load library
+		nu.pattern.OpenCV.loadShared();
 		SpringApplication.run(LoginDemoApplication.class, args);
 	}
 	@Bean
