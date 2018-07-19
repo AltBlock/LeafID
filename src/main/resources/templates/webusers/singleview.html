@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="ISO-8859-1"/>
+	<title>Plant List</title>
+	<th:block th:replace="fragments/style"></th:block>
+</head>
+<body>
+   
+    <div layout:fragment="content">
+				
+			<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+				<ul class="breadcrumb">
+				<h1>
+					<li>
+						<i class="fa fa-leaf"></i>
+						<a href="#">LeafId</a>
+					</li>
+					</h1>
+				</ul><!-- /.breadcrumb -->
+			</div>
+			
+			<div class="page-content">						
+					<div class="page-header">
+						<h1>
+							Plant Details
+							
+						</h1>
+					</div><!-- /.page-header -->
+					
+					<div class="row">
+						<div class="col-xs-12">
+							<!-- PAGE CONTENT BEGINS -->
+									<div id="user-profile-1" class="user-profile row">
+										<div class="col-xs-12 col-sm-4 center">
+											<div>
+												<span class="profile-picture">
+													<img  alt="Plant picture" style="width:380px;height:460px"/>
+												</span>
+
+												<div class="space-4"></div>
+
+												<div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
+													<div class="inline position-relative">								
+															<span class="white">Title</span>														
+													</div>
+												</div>
+											</div>
+											<div class="space-6"></div>									
+										</div>
+
+										<div class="col-xs-12 col-sm-8">							
+											<div class="profile-user-info profile-user-info-striped">
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Kingdom </div>
+													<div class="profile-info-value">
+														<span class="editable" id="username" >test</span>
+													</div>
+												</div>
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Sub-Kingdom </div>
+													<div class="profile-info-value">
+														<span class="editable" id="username" >test</span>
+													</div>
+												</div>
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Super-Kingdom </div>
+													<div class="profile-info-value">
+														<span class="editable" id="username">test</span>
+													</div>
+												</div>
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Division </div>
+													<div class="profile-info-value">
+														<span class="editable" id="username" >test</span>
+													</div>
+												</div>
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Phylum </div>
+													<div class="profile-info-value">
+														<span class="editable" id="username" >test</span>
+													</div>
+												</div>
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Class Name </div>
+													<div class="profile-info-value">
+														<span class="editable" id="username" >test</span>
+													</div>
+												</div>
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Sub-Class </div>
+													<div class="profile-info-value">
+														<span class="editable" id="username">test</span>
+													</div>
+												</div>
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Order </div>
+													<div class="profile-info-value">
+														<span class="editable" id="username">test</span>
+													</div>
+												</div>
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Family </div>
+													<div class="profile-info-value">
+														<span class="editable" id="username" >test</span>
+													</div>
+												</div>
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Genus </div>
+													<div class="profile-info-value">
+														<span class="editable" id="username">test</span>
+													</div>
+												</div>
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Species </div>
+													<div class="profile-info-value">
+														<span class="editable" id="username" >test</span>
+													</div>
+												</div>
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Common Name </div>
+													<div class="profile-info-value">
+														<span class="editable" id="username" >test</span>
+													</div>
+												</div>
+												<div class="profile-info-row">
+													<div class="profile-info-name"> Description </div>
+													<div class="profile-info-value">
+														<span class="editable" id="username">test</span>
+													</div>
+												</div>
+											</div>
+
+											<div class="space-20"></div>													
+										</div>
+									</div>
+												
+									
+								
+							<!-- PAGE CONTENT ENDS -->
+						</div><!-- /.col -->
+					</div><!-- /.row -->
+			</div><!-- /.content -->
+			
+				
+	</div><!-- /.main-content -->
+	
+	<footer class="footer" th:replace="fragments/footer"></footer>
+	<th:block th:replace="fragments/script"></th:block>
+	
+	<th:block layout:fragment="scripts">
+		<script src="../static/js/jquery.dataTables.min.js" th:src="@{/js/jquery.dataTables.min.js/}"></script>
+		<script src="../static/js/jquery.dataTables.bootstrap.min.js" th:src="@{/js/jquery.dataTables.bootstrap.min.js/}"></script>
+		<script src="../static/js/dataTables.buttons.min.js" th:src="@{/js/dataTables.buttons.min.js/}"></script>
+		<script src="../static/js/buttons.flash.min.js" th:src="@{/js/buttons.flash.min.js/}"></script>
+		<script src="../static/js/buttons.html5.min.js" th:src="@{/js/buttons.html5.min.js/}"></script>
+		<script src="../static/js/buttons.print.min.js" th:src="@{/js/buttons.print.min.js/}"></script>
+		<script src="../static/js/buttons.colVis.min.js" th:src="@{/js/buttons.colVis.min.js/}"></script>
+		<script src="../static/js/dataTables.select.min.js" th:src="@{/js/dataTables.select.min.js/}"></script>
+		
+		<script type="text/javascript">
+			jQuery(function($) {
+				//initiate dataTables plugin
+				var myTable = 
+				$('#dynamic-table')
+				
+				.DataTable( {
+					bAutoWidth: false,
+					"aoColumns": [
+					  { "bSortable": false },
+					  null, null,null, null, null, null, null, null,
+					  { "bSortable": false }
+					],
+					"aaSorting": [],
+					
+					select: {
+						style: 'multi'
+					}
+			    } );				
+			})
+		</script>
+	</th:block>
+    
+
+</body>
+</html>

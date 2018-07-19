@@ -13,6 +13,9 @@
     cursor: pointer;
     text-align: center;
 }
+
+
+
 .picture{
     width: 106px;
     height: 106px;
@@ -125,6 +128,7 @@ figure {
 }
 
 a {
+	color: #6bfb49;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
@@ -135,8 +139,9 @@ iframe {
   border: 0;
 }
 
-a, a:focus, a:hover {
+ a:focus, a:hover {
   text-decoration: none;
+  color: #ffffff;
   outline: 0;
 }
 

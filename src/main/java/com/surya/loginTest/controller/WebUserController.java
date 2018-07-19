@@ -11,5 +11,15 @@ public class WebUserController {
 	public String changePassword() {
 		return "webusers/homepage";
 	}
+	
+	@RequestMapping(value="/showmatch", method=RequestMethod.GET)
+	public String showMatchPlant() {
+		return "webusers/showmatch";
+	}
+
+	@RequestMapping(value="/singleview", method=RequestMethod.GET)
+	public String showSinglePlant() {
+		return "webusers/singleview";
+	}
 
 }
