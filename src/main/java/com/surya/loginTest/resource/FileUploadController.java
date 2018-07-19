@@ -89,6 +89,7 @@ public class FileUploadController {
     	//saving image url
     	plant.setId(generateUniqueId());
     	if(file==null||file.isEmpty()) System.out.println("file is empty");
+
     	
     	String savedFileName=saveImageinFile(file);
     	plant.setImageUrl(savedFileName);
@@ -103,6 +104,9 @@ public class FileUploadController {
     	List<Double> diffValues= diff.getDistanceDifferenceFromMean();
     	System.out.println("Size of contour poits is "+diffValues);
     	plant.setDistanceDifferenceFromMean(diffValues);
+
+    	plant.setImageUrl(saveImageinFile(file));
+
     	/// saving plant to database
     	}
     	catch(FileNotFoundException e)

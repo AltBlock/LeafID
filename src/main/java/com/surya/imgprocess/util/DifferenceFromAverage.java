@@ -9,18 +9,20 @@ import org.opencv.core.Mat;
 
 public class DifferenceFromAverage {
 	List<Double> distanceDiff;
+
 	
 	
 	public DifferenceFromAverage(Mat img)
 	{
-		
+		distanceDiff =new LinkedList<>();
 		FeatureVectorCalculator fvc = new FeatureVectorCalculator(img);
 		double average =fvc.getAverageFv();
-		distanceDiff =new LinkedList<>();
 		for(double distance:fvc.getFeatureVector())
 		{
 			 distanceDiff.add(distance-average);
 		}
+		
+		
 		
 	}
 	

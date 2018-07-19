@@ -4,11 +4,8 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.assertj.core.internal.Doubles;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -40,6 +37,7 @@ public class Plant {
 	private String species;
 	private String commonName;
 	private String description;
+	
 	private double[] distanceDifferenceFromMean;
 	
 	public String getId() {

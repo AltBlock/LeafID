@@ -25,12 +25,13 @@ public class FeatureVectorCalculator {
 		computeAverageFeatureVector();
 		
 	}
-	public double getAverageFv() {return this.averageFv;}
+	public double getAverageFv() 
+	{return this.averageFv;}
 		
-		public List<Double> getFeatureVector()
-		{
+	public List<Double> getFeatureVector()
+	{
 			return this.featureVectors;
-		}
+	}
 	
 		
 	private double getEuclideanDistance(Point edgePoint)
