@@ -1,11 +1,14 @@
 package com.surya.loginTest.resource;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
 import org.apache.commons.lang.RandomStringUtils;
+import org.opencv.core.Mat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -22,6 +25,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
+import com.surya.imgprocess.util.DifferenceFromAverage;
+import com.surya.imgprocess.util.ImageFetcher;
 import com.surya.loginTest.exceptions.StorageFileNotFoundException;
 import com.surya.loginTest.model.Plant;
 import com.surya.loginTest.repository.PlantRepository;
@@ -33,6 +38,8 @@ import com.surya.loginTest.repository.StorageService;
 public class FileUploadController {
 	
 	public static final int ID_LENGTH = 10;
+	public static final String base_img_url="upload-dir/";
+	ImageFetcher fetcher=new ImageFetcher();
 
     private static StorageService storageService;
     @Autowired
@@ -82,8 +89,28 @@ public class FileUploadController {
     	//saving image url
     	plant.setId(generateUniqueId());
     	if(file==null||file.isEmpty()) System.out.println("file is empty");
-    	plant.setImageUrl(saveImageinFile(file));
+    	
+    	String savedFileName=saveImageinFile(file);
+    	plant.setImageUrl(savedFileName);
+    	
+    	try {
+    	//fetch image and extract feature
+    	Mat imgMat=fetcher.getMatrixFromImage(base_img_url+savedFileName);
+    	
+    	
+    	DifferenceFromAverage diff = new DifferenceFromAverage(imgMat);
+    	
+    	List<Double> diffValues= diff.getDistanceDifferenceFromMean();
+    	System.out.println("Size of contour poits is "+diffValues);
+    	plant.setDistanceDifferenceFromMean(diffValues);
     	/// saving plant to database
+    	}
+    	catch(FileNotFoundException e)
+    	{
+    		System.out.println("File not found at"+base_img_url+savedFileName);
+    	}
+    	
+    	
     	repo.save(plant);     
         
         return "redirect:/viewplant";

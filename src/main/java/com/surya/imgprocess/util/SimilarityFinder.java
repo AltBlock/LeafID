@@ -22,8 +22,8 @@ public double computeSimilarity(Mat image1,Mat image2) throws NotSameSizeExcepti
 	
 	if(fv1.size()!=fv2.size()) throw new NotSameSizeException("Two feature vectors don't have same size");
 	
-	double meanFv1=fvc1.computeAverageFeatureVector();
-	double meanFv2=fvc2.computeAverageFeatureVector();
+	/*double meanFv1=fvc1.computeAverageFeatureVector();
+	double meanFv2=fvc2.computeAverageFeatureVector();*/
 	
 	
 	double nominator=0;

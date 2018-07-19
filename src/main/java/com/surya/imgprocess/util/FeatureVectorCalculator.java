@@ -1,18 +1,18 @@
 package com.surya.imgprocess.util;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.opencv.core.Mat;
-import org.opencv.core.MatOfPoint;
 import org.opencv.core.Point;
 
 public class FeatureVectorCalculator {
 	
 	ContourAtRadialDistance card;
 	List<Point> contourPoint;
-	List<Double> featureVector;
+	List<Double> featureVectors;
 	Point centroid;
+	double averageFv;
 	
 	
 	public FeatureVectorCalculator(Mat original_image)
@@ -20,12 +20,16 @@ public class FeatureVectorCalculator {
 		ContourAtRadialDistance card =new ContourAtRadialDistance(original_image);
 		contourPoint=card.getPointsAtRadialDistance();
 		centroid=card.getCentroid();
+		featureVectors =new LinkedList<>();
+		calculateFeatureVector();
+		computeAverageFeatureVector();
 		
 	}
+	public double getAverageFv() {return this.averageFv;}
 		
 		public List<Double> getFeatureVector()
 		{
-			return this.featureVector;;
+			return this.featureVectors;
 		}
 	
 		
@@ -35,29 +39,22 @@ public class FeatureVectorCalculator {
 	}
 	
 	
-	private Point[] getMaxAreadContour()
-	{
-		int maxIndex=0;
-		Point[] maxRegion=this.contourList.get(maxIndex).toArray();
-		
-		for(int iterator=1;iterator<this.contourList.size();iterator++)
-		{
-			if(maxRegion.length<this.contourList.get(iterator).toArray().length)
-				maxIndex=iterator;	
-		}
-		
-		return this.contourList.get(maxIndex).toArray();
-	}
-	public double computeAverageFeatureVector()
+	
+	public void computeAverageFeatureVector()
 	{
 		double sum=0;
-		for(double vector:this.featureVectorList) sum+=vector;
-		double mean=sum/this.featureVectorList.size();
-		System.out.println("Mean FV is "+mean);
+		for(double vector:this.featureVectors) sum+=vector;
+		this.averageFv=sum/this.featureVectors.size();
 		
-		return mean;
 	}
 	
+	private void calculateFeatureVector()
+	{
+		for(Point edgePoint:this.contourPoint)
+		{
+			featureVectors.add(getEuclideanDistance(edgePoint));
+		}
+	}
 	
 		
 }

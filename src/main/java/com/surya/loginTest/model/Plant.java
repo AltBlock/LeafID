@@ -1,8 +1,14 @@
 package com.surya.loginTest.model;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.assertj.core.internal.Doubles;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,6 +19,7 @@ import lombok.ToString;
 @ToString
 
 @Document(collection = "plant")
+
 public class Plant {
 	
 	@Id
@@ -33,6 +40,9 @@ public class Plant {
 	private String species;
 	private String commonName;
 	private String description;
+	
+	
+	private double[] distanceDifferenceFromMean;
 	
 	public String getId() {
 		return id;
@@ -130,6 +140,20 @@ public class Plant {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public List<Double> getDistanceDifferenceFromMean() {
+		return new LinkedList (Arrays.asList(this.distanceDifferenceFromMean));
+	}
+	public void setDistanceDifferenceFromMean(List<Double> distanceDifferenceFromMean) {
+		this.distanceDifferenceFromMean=new double[distanceDifferenceFromMean.size()];
+		 for (int i = 0; i < this.distanceDifferenceFromMean.length; i++) {
+			 this.distanceDifferenceFromMean[i] = distanceDifferenceFromMean.get(i).doubleValue();  // java 1.4 style
+			 }
+	}
+	@Override 
+	public String toString()
+	{
+		return this.commonName+" "+this.className;
 	}
 	
 }
