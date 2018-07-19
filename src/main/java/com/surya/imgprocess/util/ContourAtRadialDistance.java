@@ -20,9 +20,10 @@ public class ContourAtRadialDistance {
 	private List<Point> contourPoints ;
 	private List<Point> radPoints=new LinkedList<Point>();
 	
-	public ContourAtRadialDistance(Mat binaryImg)
+	public ContourAtRadialDistance(Mat original_image)
 	{
-		this.binaryImg=binaryImg;
+		this.binaryImg=ColouredImageToBinary.convertImageToBinary(original_image);
+		
 		Mat hierarchy = new Mat();
 		Imgproc.findContours(binaryImg,
 				this.contourList,
