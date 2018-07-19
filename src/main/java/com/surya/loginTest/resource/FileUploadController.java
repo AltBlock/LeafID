@@ -77,10 +77,11 @@ public class FileUploadController {
     @PostMapping("/file/upload")
     public String submit(
     		@Valid @ModelAttribute("plant")Plant plant,
-    		@RequestParam MultipartFile file, @RequestParam String species) { 
+    		@RequestParam MultipartFile file) { 
     	   	
     	//saving image url
     	plant.setId(generateUniqueId());
+    	if(file==null||file.isEmpty()) System.out.println("file is empty");
     	plant.setImageUrl(saveImageinFile(file));
     	/// saving plant to database
     	repo.save(plant);     

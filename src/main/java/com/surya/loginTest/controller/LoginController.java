@@ -104,7 +104,7 @@ public class LoginController {
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@SuppressWarnings("null")
 	@PostMapping("/update")
-	public String savePlant(@Valid @ModelAttribute("plant")Plant plant,
+	public String updatePlant(@Valid @ModelAttribute("plant")Plant plant,
     		@RequestParam(value = "file", required=false) MultipartFile file) {
 		
 		if (!((file == null)||(file.isEmpty())))
@@ -119,6 +119,7 @@ public class LoginController {
 	    	return storageService.store(file);
 	    }
 	 
+		
 	 @RequestMapping(value="/dropzone/upload", method=RequestMethod.POST)
 		public String getDropzoneFile(@RequestParam MultipartFile file) {
 		 System.out.println("Dropzone file upload complete");
