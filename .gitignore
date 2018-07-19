@@ -24,3 +24,6 @@
 /nbdist/
 /.nb-gradle/
 /bin/upload-dir/
+/target/
+/out/
+/upload-dir/
